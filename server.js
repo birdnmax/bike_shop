@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 const path = require('path');
-require('dotenv');
+require('dotenv').config();
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, '/build')));
 
-app.get('api/ping', (req, res) => {
+app.get('/api/ping', (req, res) => {
     res.send('healthy');
 });
 
