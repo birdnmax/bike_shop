@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './register.css';
 
 export default class register extends Component {
     state = {
@@ -14,12 +15,12 @@ export default class register extends Component {
     }
 
     register = () => {
-        const registerUser = {
+        const isRegistered = {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password
         }
-        this.props.register(registerUser)
+        this.props.register(isRegistered)
     }
 
     render() {
