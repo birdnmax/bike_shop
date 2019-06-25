@@ -15,12 +15,12 @@ export default class register extends Component {
     }
 
     register = () => {
-        const isRegistered = {
+        const registerUser = {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password
         }
-        this.props.register(isRegistered)
+        this.props.register(registerUser)
     }
 
     render() {

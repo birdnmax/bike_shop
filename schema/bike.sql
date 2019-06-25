@@ -3,5 +3,6 @@ CREATE TABLE bike(
     name varchar(100) not null,
     desc varchar(100) not null,
     price decimal not null,
-    quantity int
+    quantity int,
+    img_url varchar
 );
