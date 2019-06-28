@@ -1,0 +1,36 @@
+.register-box{
+    padding-top: 150px;
+    width: 50vw;
+    max-width:350px;
+    min-width: 250px;
+    height: 40vw;
+    /* max-height: 400px;
+    min-height: 300px; */
+    background-color: #101357;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-top: 30vw;
+    margin-bottom: 30vw;
+}
+
+input{
+    width: 200px;
+    height: 15px;
+    border: none;
+}
+
+button{
+    width: 100px;
+    background-color: #00a0a0;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}

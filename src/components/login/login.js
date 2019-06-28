@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/action';
-import register from './register/register';
+import Register from './register/register';
 import './login.css';
 
 
-export default class login extends Component {
+class login extends Component {
     state = {
         username: '',
         password: '',
@@ -18,7 +18,7 @@ export default class login extends Component {
             username: this.state.username,
             password: this.state.password
         };
-        axios.post('api/login', loginUser).then(({data}) => {
+        axios.post('/auth/login', loginUser).then(({data}) => {
             if(data.success){
                 this.props.setUser(data.user);
                 this.props.history.push('/bikes')
@@ -33,7 +33,7 @@ export default class login extends Component {
         });
     };
     register = registerUser => {
-        axios.post('api/register', registerUser).then(({data}) => {
+        axios.post('/auth/register', registerUser).then(({data}) => {
             if(data.success){
                 this.props.setUser(data.user);
                 this.props.history.push('/bikes')
@@ -49,14 +49,15 @@ export default class login extends Component {
     };
 
     render() {
-        const register = this.state.isRegistered ? <Register register={this.register}/> : '';
+        const register = this.state.isRegistered ? <Register register={this.state.register}/> : '';
         return (
-            <div className='login'>
+            <div>
                 {register}
                 {this.state.isRegistered ? (
                     ''
                 ) : (
-                    <div>
+                    <div className='login-box'>
+                        Username
                         <input
                             type='text'
                             placeholder='Username'
@@ -64,15 +65,16 @@ export default class login extends Component {
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
+                        Password
                         <input
-                            type='text'
+                            type='password'
                             placeholder='Password'
                             name='password'
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
-                        <button onclick={this.login}>login</button>
-                        <button onClick={this.isRegistered}>register</button>
+                        <button type='submit' onClick={this.login}>login</button>
+                        <button type='submit' onClick={this.isRegistered}>register</button>
                     </div>
                 )}
             </div>

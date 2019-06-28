@@ -1,0 +1,17 @@
+.nav_container{
+    background-color: #00a0a0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.left{
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.right{
+    font-size: 1.25rem;
+}

@@ -28,8 +28,31 @@ export default class register extends Component {
             return <input type="text" key={i} placeholder={e} name={e} value={this.state[e]} onChange={this.handleChange}/>
         })
         return (
-            <div>
-                {inputs}
+            <div className='register-box'>
+                Username
+                <input
+                    type='text'
+                    placeholder='Username'
+                    name='username'
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                />
+                Email
+                <input
+                    type='text'
+                    placeholder='Email'
+                    name='email'
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                />
+                Password
+                <input
+                    type='password'
+                    placeholder='Password'
+                    name='password'
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                />
                 <button onClick={this.register}>Register</button>
             </div>
         )

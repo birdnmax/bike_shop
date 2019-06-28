@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 const path = require('path');
+const authentication = require('./server/authentication');
 require('dotenv').config();
 
 const app = express();
@@ -29,7 +30,10 @@ app.get('/api/ping', (req, res) => {
     res.send('healthy');
 });
 
-
+app.post('/auth/login', authentication.login)
+app.post('/auth/register', authentication.register)
+app.post('/auth/logout', authentication.logout)
+app.get('/auth/user', authentication.isLoggedIn)
 
 app.get('/*', (req, res) => {
     res.sendFile('index.html', {
