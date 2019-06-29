@@ -36,6 +36,7 @@ class cart extends Component {
         })
         return (
             <div className='cart'>
+            Cart
                 {cartItems}
             </div>
         )

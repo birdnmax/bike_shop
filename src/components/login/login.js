@@ -33,16 +33,16 @@ class login extends Component {
             isRegistered: true
         });
     };
-    register = registerUser => {
-        axios.post('/auth/register', registerUser).then(({data}) => {
-            if(data.success){
-                this.props.setUser(data.user);
-                this.props.history.push('/bikes')
-            }else{
-                alert('Username already exists. Please login.')
-            }
-        });
-    };
+    // register = registerUser => {
+    //     axios.post('/auth/register', registerUser).then(({data}) => {
+    //         if(data.success){
+    //             this.props.setUser(data.user);
+    //             this.props.history.push('/bikes')
+    //         }else{
+    //             alert('Username already exists. Please login.')
+    //         }
+    //     });
+    // };
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value

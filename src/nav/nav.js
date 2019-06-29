@@ -1,21 +1,21 @@
-import React from 'react';
-import {withRouter, Link} from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import axios from 'axios';
+import axios from 'axios';
+import * as actions from '../redux/action';
 import './nav.css';
 
-function nav(props) {
-    // const logout = () => {
-    //     axios.post('/auth/logout')
-    //     .then(data => {
-    //         if(data.success){
-    //             this.props.loginUser(data)
-    //         }
-    //     })
-    // }
+class nav extends Component{
+    logout = () => {
+        axios.post('/auth/logout')
+        .then(res => {
+            if(res.success){
+                this.props.loginUser(res)
+            }
+        })
+    }
 
-    if (props.location.pathname !== '/'){
-        console.log('nav', props)
+    render(){
         return(
             <div className='nav_container'>
                 <div className='left'>
@@ -25,17 +25,11 @@ function nav(props) {
                     <div><Link to='/about'><i>About</i></Link></div>
                     <div><Link to='/bike_list'><i>Bikes</i></Link></div>
                     <div><Link to='/cart'><i>Cart</i></Link></div>
-                    <div><Link to='/' onClick={props.logout}><i>Logout</i></Link></div>
+                    <div><Link to='/' onClick={this.logout}><i>Logout</i></Link></div>
                 </div>
             </div>
         )
-    }else{
-        return null
     }
 }
 
-function mapStateToProps(state){
-    return state
-}
-
-export default withRouter(connect(mapStateToProps)(nav));
+export default connect(state => state, actions)(nav);
