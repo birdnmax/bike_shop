@@ -33,4 +33,6 @@ button{
     border: none;
     color: white;
     border-radius: 3px;
+    font-size: .75em;
+    height: 18px;
 }

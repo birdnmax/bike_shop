@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import * as actions from '../../../redux/action';
 import './register.css';
 
-export default class register extends Component {
+class register extends Component {
     state = {
         username: '',
         email: '',
         password: ''
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
     }
 
     register = () => {
@@ -20,13 +17,23 @@ export default class register extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        this.props.register(registerUser)
+        axios.post('/auth/register', registerUser).then(({data}) => {
+            if(data.success){
+                this.props.setUser(data.user);
+                this.props.history.push('/bikes')
+            }else{
+                alert('Invalid credentials.')
+            }
+        });
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
 
     render() {
-        const inputs = Object.keys(this.state).map((e, i) => {
-            return <input type="text" key={i} placeholder={e} name={e} value={this.state[e]} onChange={this.handleChange}/>
-        })
         return (
             <div className='register-box'>
                 Username
@@ -58,3 +65,5 @@ export default class register extends Component {
         )
     }
 }
+
+export default connect(state => state, actions)(register);

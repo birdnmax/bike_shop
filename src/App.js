@@ -24,18 +24,19 @@ class App extends Component {
  render(){
    return (
      <div className="App">
-       <Router>
-         <Switch>
-           <Route path='/' exact component={login}/>
-           <Route path='/main' component={main}/>
-           <Route path='/register' component={register}/>
-           <Route path='/contact' component={contact}/>
-           <Route path='/bike_list' component={bike_list}/>
-           <Route path='/bike/:id' component={bike}/>
-           <Route path='/cart' component={cart}/>
-           <Route path='/cartItem/:id' component={cartItem}/>
-         </Switch>
-       </Router>
+      <nav/>
+      <Router>
+        <Switch>
+          <Route path='/' exact component={login}/>
+          <Route path='/main' component={main}/>
+          <Route path='/register' component={register}/>
+          <Route path='/contact' component={contact}/>
+          <Route path='/bike_list' component={bike_list}/>
+          <Route path='/bike/:id' component={bike}/>
+          <Route path='/cart' component={cart}/>
+          <Route path='/cartItem/:id' component={cartItem}/>
+        </Switch>
+      </Router>
      </div>
    );
  }

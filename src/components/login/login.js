@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import * as actions from '../../redux/action';
 import Register from './register/register';
 import './login.css';
@@ -73,8 +74,8 @@ class login extends Component {
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
-                        <button type='submit' onClick={this.login}>login</button>
-                        <button type='submit' onClick={this.isRegistered}>register</button>
+                        <button type='submit' onClick={this.login}>Login</button>
+                        <Link to='/register' className='link'>Register</Link>
                     </div>
                 )}
             </div>
