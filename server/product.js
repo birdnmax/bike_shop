@@ -1,9 +1,9 @@
 module.exports = {
     getAll: (req, res, next) => {
         const db = req.app.get('db');
-        db.product.find()
-            .then((products)=>{
-                res.send({success: true, products})
+        db.bike_list.find()
+            .then((bike_list)=>{
+                res.send({success: true, bike_list})
             })
             .catch((err)=>{
                 res.send({success:false, err})
@@ -11,9 +11,9 @@ module.exports = {
     },
     getProductById: (req, res, next) => {
         const db = req.app.get('db');
-        db.product.findOne({id:req.params.id})
-            .then((product)=>{
-                res.send({success: true, product})
+        db.bike_list.findOne({id:Number(req.params.id)})
+            .then((bike)=>{
+                res.send({success: true, bike})
             })
             .catch((err)=>{
                 res.send({success:false, err})

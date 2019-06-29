@@ -6,6 +6,7 @@ const massive = require('massive');
 const path = require('path');
 const authentication = require('./server/authentication');
 require('dotenv').config();
+const product = require('./server/product');
 
 const app = express();
 
@@ -30,16 +31,29 @@ app.get('/api/ping', (req, res) => {
     res.send('healthy');
 });
 
+app.use('/api/*', (req, res, next) => {
+    //check to see if user is still logged in. 
+    if(!req.session.user){
+        res.send({success:false, message:'please login'})
+    }else{
+        next();
+    }
+
+})
+
+app.get('/api/bikes', product.getAll)
+app.get('/api/bike/:id', product.getProductById)
+
 app.post('/auth/login', authentication.login)
 app.post('/auth/register', authentication.register)
 app.post('/auth/logout', authentication.logout)
 app.get('/auth/user', authentication.isLoggedIn)
 
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', {
-        root: path.join(__dirname, "build")
-    })
-});
+// app.get('/*', (req, res) => {
+//     res.sendFile('index.html', {
+//         root: path.join(__dirname, "build")
+//     })
+// });
 
 const port = process.env.PORT || 8080
 app.listen(port, () => {

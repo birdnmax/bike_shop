@@ -1,17 +1,21 @@
 .nav_container{
-    background-color: #00a0a0;
+    background-color: #4cb69f;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
+    color: white;
+    text-decoration: none;
 }
 
 .left{
     display: inline-block;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
 }
 
 .right{
     font-size: 1.25rem;
+    color: white;
 }

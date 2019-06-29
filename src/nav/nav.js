@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as actions from '../redux/action';
 import './nav.css';
 
-class nav extends Component{
+class Nav extends Component{
     logout = () => {
         axios.post('/auth/logout')
         .then(res => {
@@ -23,13 +23,13 @@ class nav extends Component{
                 </div>
                 <div className='right'>
                     <div><Link to='/about'><i>About</i></Link></div>
-                    <div><Link to='/bike_list'><i>Bikes</i></Link></div>
+                    <div><Link to='/bikes'><i>Bikes</i></Link></div>
                     <div><Link to='/cart'><i>Cart</i></Link></div>
-                    <div><Link to='/' onClick={this.logout}><i>Logout</i></Link></div>
+                    <div><Link to='/login' onClick={this.logout}><i>Logout</i></Link></div>
                 </div>
             </div>
         )
     }
 }
 
-export default connect(state => state, actions)(nav);
+export default connect(state => state, actions)(Nav);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/action';
 import axios from 'axios';
+import Nav from '../../nav/nav';
 import cartItem from './cartItem/cartItem'
 
 class cart extends Component {
@@ -36,7 +37,7 @@ class cart extends Component {
         })
         return (
             <div className='cart'>
-            Cart
+                <Nav/>
                 {cartItems}
             </div>
         )

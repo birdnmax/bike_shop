@@ -57,7 +57,6 @@ module.exports = {
     },
 
     logout: (req, res, next)=>{
-        // this destroys the session and removes the user object.
         req.session.destroy();
         res.send({success:true})
     },

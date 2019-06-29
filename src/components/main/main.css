@@ -1,0 +1,51 @@
+.main{
+    margin-top: 60px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.box1{
+    width: 100vw;
+    min-width: 600px;
+    max-width: 1200px;
+    height: 350px;
+    background-color: #201d3a;
+    margin: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.box2{
+    width: 100vw;
+    min-width: 600px;
+    max-width: 1200px;
+    height: 350px;
+    background-color: #201d3a ;
+    margin: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+Link{
+    text-decoration: none;
+}
+
+.img1{
+    float: right;
+    margin-right: 30px;
+    width: 450px;
+    height: 300px;
+    margin: 20px;
+}
+
+.img2{
+    float: left;
+    margin-left: 30px;
+    width: 450px;
+    height: 300px;
+    margin: 20px;
+}

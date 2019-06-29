@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import nav from '../../nav/nav';
-import bike from './bike/bike';
+import Nav from '../../nav/nav';
+import Bike from './bike/bike';
 import './bike_list.css';
 
 export default class bike_list extends Component {
@@ -9,12 +9,12 @@ export default class bike_list extends Component {
         bikes: []
     };
 
-    componentDidMount(){
+    componentDidMount(){ debugger
         axios.get('/api/bikes')
-        .then(({data}) => {
+        .then(({data}) => { debugger
             if(data.success){
                 this.setState({
-                    bikes: data.bikes
+                    bikes: data.bike_list
                 })
             }else if (!data.isLoggedIn){
                 this.props.history.push('/')
@@ -25,10 +25,12 @@ export default class bike_list extends Component {
     }
     render() {
         const bikes = this.state.bikes.map((e, r) => {
-            return <bike key={e.id} id={e.id} name={e.name} price={e.price} description={e.description} img_url={e.img_url}/>
+            return <Bike key={e.id} id={e.id} name={e.name} price={e.price} description={e.description} img_url={e.img_url}/>
         })
         return (
             <div className='bikeList'>
+            <Nav/>
+                <h1>Bikes</h1>
                 {bikes}
             </div>
         )
