@@ -36,31 +36,33 @@ class register extends Component {
     render() {
         return (
             <div className='register-box'>
-                Username
-                <input
-                    type='text'
-                    placeholder='Username'
-                    name='username'
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                />
-                Email
-                <input
-                    type='text'
-                    placeholder='Email'
-                    name='email'
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                />
-                Password
-                <input
-                    type='password'
-                    placeholder='Password'
-                    name='password'
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                />
-                <button onClick={this.register}>Register</button>
+                <div className='login-values'>
+                    Username
+                    <input
+                        type='text'
+                        placeholder='Username'
+                        name='username'
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                    />
+                    Email
+                    <input
+                        type='text'
+                        placeholder='Email'
+                        name='email'
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    />
+                    Password
+                    <input
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                    />
+                    <button onClick={this.register}>Register</button>
+                </div>
             </div>
         )
     }

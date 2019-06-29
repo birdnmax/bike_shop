@@ -58,24 +58,26 @@ class login extends Component {
                     ''
                 ) : (
                     <div className='login-box'>
-                        Username
-                        <input
-                            type='text'
-                            placeholder='Username'
-                            name='username'
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                        Password
-                        <input
-                            type='password'
-                            placeholder='Password'
-                            name='password'
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                        <button type='submit' onClick={this.login}>Login</button>
-                        <Link to='/register' className='link'>Register</Link>
+                        <div  className='login-values'>
+                            Username
+                            <input
+                                type='text'
+                                placeholder='Username'
+                                name='username'
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                            />
+                            Password
+                            <input
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                            />
+                            <button type='submit' onClick={this.login}>Login</button>
+                            <Link to='/register' className='link'>Register</Link>
+                        </div>
                     </div>
                 )}
             </div>

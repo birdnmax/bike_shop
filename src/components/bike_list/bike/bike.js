@@ -5,11 +5,11 @@ import './bike.css';
 export default function bike(props) {
     return (
         <div>
-            <Link to={`/details/${props.id}`}>
+            <Link to={`/bike_details/${props.id}`}>
                 <img src={props.img_url} alt='Bike'/>
                 <h2>{props.name}</h2>
                 <h2>{props.price}</h2>
-                <h4>{props.desc}</h4>
+                <h4>{props.description}</h4>
             </Link>
         </div>
     )
