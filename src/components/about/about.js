@@ -5,13 +5,14 @@ import './about.css';
 export default class about extends Component {
     render() {
         return (
-            <div className='about'>
+            <div>
             <Nav/>
+            <div className='about'>
                 <div className='heroimg'>
-                    <img src='https://www.exploresquamish.com/files/dmo_experience/lead/GoatRidgeBikers-CC2224x800_0.jpg'/>
                 </div>
                 <h1>Who We Are</h1>
                 <p>Lorem Ipsum</p>
+            </div>
             </div>
         )
     };

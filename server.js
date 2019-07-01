@@ -7,6 +7,7 @@ const path = require('path');
 const authentication = require('./server/authentication');
 require('dotenv').config();
 const product = require('./server/product');
+const cart = require('./server/cart');
 
 const app = express();
 
@@ -19,10 +20,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie: {maxAge: 6000}
+    name: 'my-app',
+    secret: process.env.SESSION_SECRET, 
+    cookie: {
+        //days hours minutes seconds milseconds
+        expires:  5 * 24 * 60 * 60 *1000,
+    },
+    saveUninitialized: false,
+    rolling: true,
+    resave: false,
 }));
 
 app.use(express.static(path.join(__dirname, '/build')));
@@ -32,7 +38,7 @@ app.get('/api/ping', (req, res) => {
 });
 
 app.use('/api/*', (req, res, next) => {
-    //check to see if user is still logged in. 
+
     if(!req.session.user){
         res.send({success:false, message:'please login'})
     }else{
@@ -43,7 +49,7 @@ app.use('/api/*', (req, res, next) => {
 
 app.get('/api/bikes', product.getAll)
 app.get('/api/bike/:id', product.getProductById)
-
+app.post('/api/cart', cart.addToCart)
 app.post('/auth/login', authentication.login)
 app.post('/auth/register', authentication.register)
 app.post('/auth/logout', authentication.logout)

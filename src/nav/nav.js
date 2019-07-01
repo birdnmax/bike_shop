@@ -19,13 +19,13 @@ class Nav extends Component{
         return(
             <div className='nav_container'>
                 <div className='left'>
-                    <div><Link to='/'><i>Home</i></Link></div>
+                    <div><Link to='/'><p>Home</p></Link></div>
                 </div>
                 <div className='right'>
-                    <div><Link to='/about'><i>About</i></Link></div>
-                    <div><Link to='/bikes'><i>Bikes</i></Link></div>
-                    <div><Link to='/cart'><i>Cart</i></Link></div>
-                    <div><Link to='/login' onClick={this.logout}><i>Logout</i></Link></div>
+                    <div className='nav-link'><Link to='/about'><a>About</a></Link></div>
+                    <div className='nav-link'><Link to='/bikes'><a>Bikes</a></Link></div>
+                    <div className='nav-link'><Link to='/cart'><a>Cart</a></Link></div>
+                    <div className='nav-link'><Link to='/login' onClick={this.logout}><a>Logout</a></Link></div>
                 </div>
             </div>
         )

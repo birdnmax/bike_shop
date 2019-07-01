@@ -3,7 +3,7 @@ module.exports = {
 		const db = req.app.get('db');
 		const cartObject = {
 			user_id: req.session.user.id,
-			product_id: req.body.product.id,
+			bike_id: req.body.bike.id,
 			purchased: false,
 			date_added: new Date().toUTCString()
 		};

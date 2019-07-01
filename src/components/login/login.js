@@ -22,7 +22,7 @@ class login extends Component {
         axios.post('/auth/login', loginUser).then(({data}) => {
             if(data.success){
                 this.props.setUser(data.user);
-                this.props.history.push('/bikes')
+                this.props.history.push('/')
             }else{
                 alert('Username or password did not match our records.')
             }

@@ -11,8 +11,8 @@ class bike_details extends Component {
         bike: {}
     };
 
-    componentDidMount(){debugger
-        axios.get(`/api/bike/${this.props.match.params.id}`).then(({data}) => {debugger
+    componentDidMount(){
+        axios.get(`/api/bike/${this.props.match.params.id}`).then(({data}) => {
             if (data.success){
                 this.setState({
                     bike: data.bike
@@ -26,13 +26,15 @@ class bike_details extends Component {
     };
 
     addToCart = () => {
-        const bike = this.state.bike;
-        axios.post('api/cart', {bike})
+        debugger
+        const bike = {id: Number(this.props.match.params.id)};
+        axios.post('/api/cart', {bike})
             .then(({data}) => {
+                debugger
                 if (data.success){
                     this.props.history.push('/cart')
                 }else if (!data.isLoggedIn){
-                    this.props.history.push('/')
+                    this.props.history.push('/login')
                 }else{
                     alert('Error 404')
                 }

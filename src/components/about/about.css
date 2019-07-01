@@ -1,14 +1,14 @@
 .about{
     color: #201d3a;
     max-width: 1200px;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
     align-items: center;
 }
 
 .heroimg{
-    object-fit: cover;
+    background-image: url('https://www.exploresquamish.com/files/dmo_experience/lead/GoatRidgeBikers-CC2224x800_0.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
     max-width: 1200px;
     height: 300px;

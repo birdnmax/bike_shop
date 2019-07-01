@@ -24,7 +24,7 @@ class cart extends Component {
             if (data.success){
                 this.props.setCart(data.cartItems)
             }else if (!data.isLoggedIn){
-                this.props.history.push('/')
+                this.props.history.push('/login')
             }else{
                 alert('Error 404')
             }
